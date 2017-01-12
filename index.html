@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="Stylesheet" type="text/css" href="style.css" />
+
+  <title>Clock</title>
+</head>
+<body>
+
+  <div class="clock">
+    <div class="clockInside">
+      <div class="inside hour-inside"></div>
+      <div class="inside min-inside"></div>
+      <div class="inside sec-inside"></div>
+
+    </div>
+      <div id="digit"></div>
+  </div>
+
+
+
+
+<script>
+const secInside = document.querySelector('.sec-inside');
+const minInside = document.querySelector('.min-inside');
+const hourInside = document.querySelector('.hour-inside');
+
+// const analog = document.querySelector('.analog');
+
+
+function setDate(){
+  const now1 = new Date();
+  let second = now1.getSeconds(); //Bierze sekundy
+  const secDeg = ((second / 60) * 360) + 90; //wzor wyciagajacy kat + 90 stopni by odwrocic kat do funkcji zegarka
+  secInside.style.transform = `rotate(${secDeg}deg)`; // wskazowka znajduje sie w zaleznosci od kata
+
+  var min = now1.getMinutes();//bierze minuty
+  const minDeg = ((min / 60) * 360) + 90;
+  minInside.style.transform = `rotate(${minDeg}deg)`;
+
+  var hour = now1.getHours();//bierze godziny
+  const hourDeg = (((hour + min / 60) / 12) * 360) + 90;
+  hourInside.style.transform = `rotate(${hourDeg}deg)`;
+
+  //zegarek analogowy
+
+  second = second.toString();
+  min = min.toString()+ " : ";
+  hour = hour + " : ";
+
+  document.getElementById("digit").innerHTML = `${second}` // hour + min + second;
+
+};
+
+
+
+setInterval(setDate, 1000);
+
+</script>
+</body>
+</html>

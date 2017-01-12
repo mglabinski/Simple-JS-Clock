@@ -1,0 +1,50 @@
+html {
+  background-color: black;
+  text-align: center;
+  height:100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  flex:1;
+
+}
+
+.clock {
+  width: 350px;
+  height: 350px;
+  border: 20px solid white;
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+}
+
+.inside {
+  width: 50%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /*ruch wskazowki*/
+}
+
+.min-inside {
+  background: grey;
+  height: 6px;
+}
+.sec-inside {
+  background:white;
+}
+.hour-inside{
+  background: brown;
+  height: 14px;
+}
+
+#digit {
+position: absolute; top:-500px;
+color: white;
+}
